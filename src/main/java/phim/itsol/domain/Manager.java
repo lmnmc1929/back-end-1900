@@ -1,6 +1,8 @@
 package phim.itsol.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "MANAGER")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Manager {
 
     @ManyToOne
@@ -17,11 +21,11 @@ public class Manager {
 
     @OneToOne
     @JoinColumn(name = "CINEMA_ID")
-//    private Cinema cinema;
+    private Cinema cinema;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MANA_SEQ")
-    @SequenceGenerator(sequenceName = "MANAGER_SEQ", allocationSize = 1,name = "MANA_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MANAGER_SEQ")
+    @SequenceGenerator(sequenceName = "MANAGER_SEQ", allocationSize = 1,name = "MANAGER_SEQ")
     @Column(name = "MANAGER_ID")
     private Long mamagerId;
 
