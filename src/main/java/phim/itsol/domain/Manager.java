@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "MANAGER")
@@ -15,9 +17,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Manager {
 
-    @ManyToOne
-    @JoinColumn(name = "ROLE_ID")
-    private Role role;
+    @ManyToMany
+    @JoinTable(
+            name = "MANAGER_ROLE",
+            joinColumns = {@JoinColumn(name = "MANAGER", referencedColumnName = "MANAGER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE", referencedColumnName = "ROLE_ID")})
+    @BatchSize(size = 20)
+    private List<Role> roleList;
 
     @OneToOne
     @JoinColumn(name = "CINEMA_ID")

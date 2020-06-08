@@ -1,4 +1,4 @@
-package com.itsol.train.mock.security.jwt;
+package phim.itsol.security.jwt;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

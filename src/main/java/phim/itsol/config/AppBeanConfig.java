@@ -1,4 +1,4 @@
-package com.itsol.train.mock.config;
+package phim.itsol.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

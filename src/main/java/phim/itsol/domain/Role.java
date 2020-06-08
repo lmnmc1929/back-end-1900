@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Role {
 
-    @OneToMany(targetEntity = Manager.class)
+    @ManyToMany(targetEntity = Manager.class)
     private List<Manager> managerList;
 
     @Id

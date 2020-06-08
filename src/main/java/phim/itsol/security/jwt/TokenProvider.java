@@ -1,4 +1,4 @@
-package com.itsol.train.mock.security.jwt;
+package phim.itsol.security.jwt;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

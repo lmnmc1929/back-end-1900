@@ -1,8 +1,8 @@
-package com.itsol.train.mock.config;
+package phim.itsol.config;
 
-import com.itsol.train.mock.security.AuthoritiesConstants;
-import com.itsol.train.mock.security.jwt.JWTConfigurer;
-import com.itsol.train.mock.security.jwt.TokenProvider;
+import phim.itsol.security.AuthoritiesConstants;
+import phim.itsol.security.jwt.JWTConfigurer;
+import phim.itsol.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

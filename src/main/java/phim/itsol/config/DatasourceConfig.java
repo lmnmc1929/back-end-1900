@@ -1,4 +1,4 @@
-package com.itsol.train.mock.config;
+package phim.itsol.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -33,7 +33,7 @@ public class DatasourceConfig {
             EntityManagerFactoryBuilder builder, DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.itsol.train.mock.domain")
+                .packages("phim.itsol.domain")
                 .build();
     }
 

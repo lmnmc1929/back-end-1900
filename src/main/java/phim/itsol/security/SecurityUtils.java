@@ -1,4 +1,4 @@
-package com.itsol.train.mock.security;
+package phim.itsol.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;

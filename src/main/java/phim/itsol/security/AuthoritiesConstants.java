@@ -1,4 +1,4 @@
-package com.itsol.train.mock.security;
+package phim.itsol.security;
 
 public class AuthoritiesConstants {
     public static final String ADMIN = "ROLE_ADMIN";

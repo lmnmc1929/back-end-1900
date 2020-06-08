@@ -1,7 +1,7 @@
-package com.itsol.train.mock.security;
+package phim.itsol.security;
 
-import com.itsol.train.mock.domain.User;
-import com.itsol.train.mock.repo.UserRepository;
+import phim.itsol.domain.Manager;
+import phim.itsol.repo.ManagerRepository;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,10 +24,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     private Logger log = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 
-    private final UserRepository userRepository;
+    private final ManagerRepository managerRepository;
 
-    public UserDetailServiceImpl(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public UserDetailServiceImpl(ManagerRepository managerRepository){
+        this.managerRepository = managerRepository;
     }
 
     @Override
@@ -35,25 +35,22 @@ public class UserDetailServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         log.trace("Service authenticate: {}", login);
         if (new EmailValidator().isValid(login, null)) {
-            return userRepository.findOneWithAuthoritiesByEmail(login)
-                    .map(user -> createSpringSecurityUser(login, user))
+            return managerRepository.findOneWithAuthoritiesByEmail(login)
+                    .map(manager -> createSpringSecurityUser(login, manager))
                     .orElseThrow(() -> new UsernameNotFoundException("User with email " + login + " not found in the database"));
         }
 
-        return userRepository.findOneWithAuthoritiesByUsername(login)
-                .map(user -> createSpringSecurityUser(login, user))
+        return managerRepository.findOneWithAuthoritiesByUsername(login)
+                .map(manager -> createSpringSecurityUser(login, manager))
                 .orElseThrow(() -> new UsernameNotFoundException("User " + login + " not found in the database"));
 
     }
 
-    private org.springframework.security.core.userdetails.User createSpringSecurityUser(String login, User user) {
-        if (!user.getActivated()) {
-            throw new UserNotActivatedException("User " + login + " was not activated");
-        }
-        List<GrantedAuthority> grantedAuthorities = user.getAuthorities()
-                .stream().map(authority -> new SimpleGrantedAuthority(authority.getName()))
+    private org.springframework.security.core.userdetails.User createSpringSecurityUser(String login, Manager manager) {
+        List<GrantedAuthority> grantedAuthorities = manager.getRoleList()
+                .stream().map(role -> new SimpleGrantedAuthority(role.getRoleName()))
                 .collect(Collectors.toList());
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),
-                user.getPassword(), grantedAuthorities);
+        return new org.springframework.security.core.userdetails.User(manager.getManagerUsername(),
+                manager.getManagerPassword(), grantedAuthorities);
     }
 }
