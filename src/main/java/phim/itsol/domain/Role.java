@@ -12,8 +12,8 @@ import java.util.List;
 @Table(name = "ROLE")
 public class Role {
 
-    @OneToMany(mappedBy = Manager.class)
-    private List<Manager> managerList;
+//    @OneToMany(mappedBy = Manager.class)
+//    private List<Manager> managerList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROLE_SEQ")
@@ -23,4 +23,5 @@ public class Role {
 
     @Column(name = "ROLE_NAME")
     private String roleName;
+
 }
