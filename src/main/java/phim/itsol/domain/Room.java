@@ -17,7 +17,7 @@ import java.util.List;
 public class Room {
 
     @ManyToOne
-    @JoinColumn(name="cinemaId")
+    @JoinColumn(name="CINEMA_ID")
     private Cinema cinema;
 
     @OneToMany(targetEntity = Seat.class)
