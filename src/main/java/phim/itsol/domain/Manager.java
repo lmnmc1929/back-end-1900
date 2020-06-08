@@ -17,7 +17,7 @@ public class Manager {
 
     @OneToOne
     @JoinColumn(name = "CINEMA_ID")
-    private Cinema cinema;
+//    private Cinema cinema;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MANA_SEQ")
