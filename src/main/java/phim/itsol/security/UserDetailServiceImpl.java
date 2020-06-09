@@ -33,14 +33,16 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
+        log.trace("Service authenticate: {}", username);
         return managerRepository.findOneWithAuthoritiesByManagerUsername(username)
                 .map(manager -> createSpringSecurityUser(username, manager))
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found in the database"));
 
+
     }
 
     private org.springframework.security.core.userdetails.User createSpringSecurityUser(String login, Manager manager) {
+        System.out.println("da chay v2");
         List<GrantedAuthority> grantedAuthorities = manager.getRoleList()
                 .stream().map(role -> new SimpleGrantedAuthority(role.getRoleName()))
                 .collect(Collectors.toList());

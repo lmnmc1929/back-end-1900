@@ -20,6 +20,7 @@ public class ManagerDto {
     private Long managerId;
     @NotNull
     private String managerUsername;
+
     @NotNull
     private String managerPassword;
 

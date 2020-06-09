@@ -22,7 +22,7 @@ import javax.validation.Valid;
 import java.util.Collections;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping("/api")
 public class ManagerJWTController {
     private Logger log = LoggerFactory.getLogger(getClass());
 
