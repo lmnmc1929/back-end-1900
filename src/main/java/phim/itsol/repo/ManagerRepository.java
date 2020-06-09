@@ -10,14 +10,12 @@ import java.util.Optional;
 
 public interface ManagerRepository extends JpaRepository<Manager, String> {
 
-    String USERS_BY_LOGIN_CACHE = "getByUsername";
+    String USERS_BY_LOGIN_CACHE = "getByManagerUsername";
 
     @EntityGraph(attributePaths = "authorities")
     @Cacheable(cacheNames = USERS_BY_LOGIN_CACHE)
-    Optional<Manager> findOneWithAuthoritiesByUsername(String username);
+    Optional<Manager> findOneWithAuthoritiesByManagerUsername(String username);
 
-    @EntityGraph(attributePaths = "authorities")
-    Optional<Manager> findOneWithAuthoritiesByEmail(String username);
 
 
 }

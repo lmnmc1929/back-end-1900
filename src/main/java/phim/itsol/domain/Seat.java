@@ -18,11 +18,10 @@ import javax.persistence.*;
 
 public class Seat {
 
-    @ManyToOne
-    @JoinColumn(name="ROOM_ID")
+    @OneToOne(targetEntity = Room.class)
     private Room room;
-    @ManyToOne
-    @JoinColumn(name ="SEAT_TYPE_ID")
+
+    @OneToOne(targetEntity = SeatType.class)
     private SeatType seatType;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEAT_SEQ")

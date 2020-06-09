@@ -1,4 +1,4 @@
-package com.itsol.train.mock.constants;
+package phim.itsol.constants;
 
 public class AppConstants {
     public static final int RESPONSE_OK = 1;

@@ -32,17 +32,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        log.trace("Service authenticate: {}", login);
-        if (new EmailValidator().isValid(login, null)) {
-            return managerRepository.findOneWithAuthoritiesByEmail(login)
-                    .map(manager -> createSpringSecurityUser(login, manager))
-                    .orElseThrow(() -> new UsernameNotFoundException("User with email " + login + " not found in the database"));
-        }
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        return managerRepository.findOneWithAuthoritiesByUsername(login)
-                .map(manager -> createSpringSecurityUser(login, manager))
-                .orElseThrow(() -> new UsernameNotFoundException("User " + login + " not found in the database"));
+        return managerRepository.findOneWithAuthoritiesByManagerUsername(username)
+                .map(manager -> createSpringSecurityUser(username, manager))
+                .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found in the database"));
 
     }
 
@@ -53,4 +47,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(manager.getManagerUsername(),
                 manager.getManagerPassword(), grantedAuthorities);
     }
+
+
 }

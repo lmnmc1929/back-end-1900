@@ -1,5 +1,6 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Manager {
 
     @ManyToMany
@@ -33,7 +35,7 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MANAGER_SEQ")
     @SequenceGenerator(sequenceName = "MANAGER_SEQ", allocationSize = 1,name = "MANAGER_SEQ")
     @Column(name = "MANAGER_ID")
-    private Long mamagerId;
+    private Long managerId;
 
     @Column(name = "MANAGER_USERNAME")
     private String managerUsername;
