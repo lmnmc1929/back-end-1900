@@ -28,7 +28,7 @@ public class Manager {
     @BatchSize(size = 20)
     private Set<Role> roleList;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "CINEMA_ID")
     private Cinema cinema;
 
@@ -42,6 +42,7 @@ public class Manager {
     private String managerUsername;
 
     @Column (name = "MANAGER_PASSWORD")
+    @JsonIgnore
     private String managerPassword;
 
     @Column(name = "MANAGER_NAME")

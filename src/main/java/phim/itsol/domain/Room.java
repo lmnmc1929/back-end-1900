@@ -30,6 +30,7 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROOM_SEQ")
     @SequenceGenerator(sequenceName = "ROOM_SEQ", allocationSize = 1, name = "ROOM_SEQ")
+    @Column(name = "ROOM_ID")
     private Long roomId;
 
     @Column(name = "ROOM_NAME", length = 100)

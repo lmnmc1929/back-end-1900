@@ -24,12 +24,11 @@ public class Seat {
     @OneToOne(targetEntity = SeatType.class)
     private SeatType seatType;
 
-    @OneToOne(targetEntity = Ticket.class)
-    private Ticket ticket;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEAT_SEQ")
     @SequenceGenerator(sequenceName = "SEAT_SEQ", allocationSize = 1, name = "SEAT_SEQ")
+    @Column(name = "SEAT_ID")
     private int seatId;
 
     @Column(name = "SEAT_ROW", length = 20)
