@@ -21,6 +21,9 @@ public class Cinema {
     @OneToMany(targetEntity = Manager.class)
     private List<Manager> managerList;
 
+    @OneToOne(targetEntity = Ticket.class)
+    private Ticket ticket;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CINEMA_SEQ")
     @SequenceGenerator(sequenceName = "CINEMA_SEQ", allocationSize = 1, name = "CINEMA_SEQ")
