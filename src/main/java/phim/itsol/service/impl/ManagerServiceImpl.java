@@ -35,7 +35,7 @@ public class ManagerServiceImpl implements ManagerService {
     private PasswordEncoder passwordEncoder;
 
 
-
+    @Transactional
     @Override
     public void register(ManagerDto managerDto) throws UsernameExistException, EmailExistException {
         log.trace("Service to register user in web site");

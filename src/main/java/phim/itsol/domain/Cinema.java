@@ -18,7 +18,7 @@ public class Cinema {
     @OneToMany(targetEntity = Room.class)
     private List<Room> roomList;
 
-    @OneToMany(targetEntity = Manager.class, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Manager.class)
     private List<Manager> managerList;
 
     @Id

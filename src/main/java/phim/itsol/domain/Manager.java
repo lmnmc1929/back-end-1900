@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class Manager {
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "MANAGER_ROLE",
             joinColumns = {@JoinColumn(name = "MANAGER_ID", referencedColumnName = "MANAGER_ID")},
@@ -28,7 +28,7 @@ public class Manager {
     @BatchSize(size = 20)
     private Set<Role> roleList;
 
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "CINEMA_ID")
     private Cinema cinema;
 

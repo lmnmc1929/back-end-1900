@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Role {
 
-    @ManyToMany(targetEntity = Manager.class)
+    @ManyToMany(targetEntity = Manager.class, cascade = CascadeType.ALL)
     private List<Manager> managerList;
 
     @Id
