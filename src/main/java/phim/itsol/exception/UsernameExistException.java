@@ -1,4 +1,4 @@
-package com.itsol.train.mock.exception;
+package phim.itsol.exception;
 
 public class UsernameExistException extends Exception {
 

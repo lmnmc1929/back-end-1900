@@ -8,6 +8,7 @@ import phim.itsol.domain.Role;
 import javax.validation.constraints.NotNull;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -18,20 +19,22 @@ import java.util.List;
 @EqualsAndHashCode
 public class ManagerDto {
     private Long managerId;
-    @NotNull
+
+    private Long cinemaId;
+
     private String managerUsername;
 
-    @NotNull
+
     private String managerPassword;
 
     private String managerName;
     private Boolean rememberMe;
 
-    private List<Role> roleList;
+    private Set<Role> roleList;
 
 
     public ManagerDto(Manager manager){
-        this.managerId = manager.getManagerId();
+        this.cinemaId = manager.getCinema().getCinemaId();
         this.managerUsername = manager.getManagerUsername();
         this.managerPassword = manager.getManagerPassword();
         this.managerName = manager.getManagerName();

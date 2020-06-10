@@ -4,6 +4,7 @@ package phim.itsol.rest;
 import phim.itsol.constants.AppConstants;
 import phim.itsol.dto.ManagerDto;
 
+import phim.itsol.dto.ResponseDto;
 import phim.itsol.service.ManagerService;
 
 import org.slf4j.Logger;
@@ -24,19 +25,19 @@ public class ManagerResource {
     @Autowired
     private ManagerService managerService;
 
-//    @PostMapping("/register")
-//    public ResponseEntity<ResponseDto> register(@RequestBody UserDto userDto){
-//        log.trace("REST request to register user website: {}", userDto);
-//        ResponseDto responseDto = new ResponseDto();
-//        try{
-//            userService.register(userDto);
-//            responseDto.setResponseCode(AppConstants.RESPONSE_OK);
-//        } catch (Exception exception){
-//            responseDto.setResponseCode(AppConstants.RESPONSE_ERRORS);
-//            responseDto.setMessage(exception.getMessage());
-//        }
-//        return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
-//    }
+    @PostMapping("/register")
+    public ResponseEntity<ResponseDto> register(@RequestBody ManagerDto managerDto){
+        log.trace("REST request to register user website: {}", managerDto);
+        ResponseDto responseDto = new ResponseDto();
+        try{
+            managerService.register(managerDto);
+            responseDto.setResponseCode(AppConstants.RESPONSE_OK);
+        } catch (Exception exception){
+            responseDto.setResponseCode(AppConstants.RESPONSE_ERRORS);
+            responseDto.setMessage(exception.getMessage());
+        }
+        return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
+    }
     @GetMapping("/get-profile")
     public ResponseEntity<ManagerDto> getProfile(){
         ManagerDto managerDto = managerService.getManagerWithRoleList()

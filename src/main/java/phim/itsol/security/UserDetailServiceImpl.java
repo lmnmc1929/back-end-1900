@@ -34,7 +34,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.trace("Service authenticate: {}", username);
-        return managerRepository.findOneWithAuthoritiesByManagerUsername(username)
+        return managerRepository.findOneWithRoleListByManagerUsername(username)
                 .map(manager -> createSpringSecurityUser(username, manager))
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found in the database"));
 

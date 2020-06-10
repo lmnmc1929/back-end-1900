@@ -1,4 +1,4 @@
-package com.itsol.train.mock.dto;
+package phim.itsol.dto;
 
 import lombok.*;
 

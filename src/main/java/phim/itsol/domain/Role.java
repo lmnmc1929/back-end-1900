@@ -28,4 +28,8 @@ public class Role {
 
     @Column(name = "ROLE_NAME")
     private String roleName;
+
+    public Role(String roleName) {
+        this.roleName = roleName;
+    }
 }

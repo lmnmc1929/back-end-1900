@@ -12,9 +12,11 @@ public interface ManagerRepository extends JpaRepository<Manager, String> {
 
     String USERS_BY_LOGIN_CACHE = "getByManagerUsername";
 
-    @EntityGraph(attributePaths = "authorities")
+    @EntityGraph(attributePaths = "roleList")
     @Cacheable(cacheNames = USERS_BY_LOGIN_CACHE)
-    Optional<Manager> findOneWithAuthoritiesByManagerUsername(String username);
+    Optional<Manager> findOneWithRoleListByManagerUsername(String managerUsername);
+    //Optional<Manager> findManagerByManagerUsername(String managerUsername);
+
 
 
 
