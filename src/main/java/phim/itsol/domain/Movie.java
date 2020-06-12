@@ -27,8 +27,8 @@ public class Movie {
     @ManyToMany
     @JoinTable(
             name = "MOVIE_GENRE",
-            joinColumns = {@JoinColumn(name = "MOVIE", referencedColumnName = "MOVIE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "GENRE", referencedColumnName = "GENRE_ID")})
+            joinColumns = {@JoinColumn(name = "MOVIE_ID", referencedColumnName = "MOVIE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "GENRE_ID", referencedColumnName = "GENRE_ID")})
     @BatchSize(size = 20)
     private List<Genre> genreList;
 

@@ -19,6 +19,12 @@ public class Ticket {
     @OneToOne(targetEntity = CancelTicket.class)
     private CancelTicket cancelTicket;
 
+    @OneToOne(targetEntity = Cinema.class)
+    private Cinema cinema;
+
+    @OneToOne(targetEntity = Seat.class)
+    private Seat seat;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TICKET_SEQ")
     @SequenceGenerator(name = "TICKET_SEQ", sequenceName = "TICKET_SEQ", allocationSize = 1)

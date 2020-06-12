@@ -1,5 +1,6 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SCHEDULE_SEQ")

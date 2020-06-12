@@ -17,8 +17,8 @@ import java.util.List;
 
 public class Role {
 
-    @OneToMany(targetEntity = Manager.class)
-    private List<Manager> managerList;
+//    @ManyToMany(targetEntity = Manager.class, cascade = CascadeType.ALL)
+//    private List<Manager> managerList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROLE_SEQ")
@@ -28,4 +28,8 @@ public class Role {
 
     @Column(name = "ROLE_NAME")
     private String roleName;
+
+//    public Role(String roleName) {
+//        this.roleName = roleName;
+//    }
 }
