@@ -11,6 +11,7 @@ import phim.itsol.dto.ManagerDto;
 import phim.itsol.exception.EmailExistException;
 import phim.itsol.exception.UsernameExistException;
 import phim.itsol.repo.ManagerRepository;
+import phim.itsol.repo.RoleRepository;
 import phim.itsol.security.AuthoritiesConstants;
 import phim.itsol.security.SecurityUtils;
 import phim.itsol.service.ManagerService;
@@ -28,6 +29,8 @@ public class ManagerServiceImpl implements ManagerService {
     @Autowired
     private ManagerRepository managerRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -50,10 +53,15 @@ public class ManagerServiceImpl implements ManagerService {
 //        }
         Manager entity = modelMapper.map(managerDto, Manager.class);
         entity.setManagerPassword(passwordEncoder.encode(entity.getManagerPassword()));
-        Set<Role> roleList = new HashSet<>(Collections
-                .singletonList(new Role(AuthoritiesConstants.MANAGER)));
-        entity.setRoleList(roleList);
+        Set<Role> roleList = new HashSet<>();
+
+        for (String role: managerDto.getRoles()) {
+            roleList.add(roleRepository.findRoleByRoleName(role));
+            System.out.println(role);
+        }
+        System.out.println("size : " + roleList.size());
 //        entity.setActivated(Boolean.FALSE);
+        entity.setRoleList(roleList);
         managerRepository.save(entity);
     }
 

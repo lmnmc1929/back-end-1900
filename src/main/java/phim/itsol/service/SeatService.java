@@ -1,7 +1,5 @@
 package phim.itsol.service;
 
-import phim.itsol.domain.Cinema;
-import phim.itsol.domain.Seat;
 import phim.itsol.dto.SeatDto;
 
 import java.util.List;

@@ -1,10 +1,6 @@
 package phim.itsol.dto;
 
 import lombok.*;
-import phim.itsol.domain.Room;
-import phim.itsol.domain.SeatType;
-
-import javax.persistence.Entity;
 
 @Getter
 @Setter

@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class Manager {
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "MANAGER_ROLE",
             joinColumns = {@JoinColumn(name = "MANAGER_ID", referencedColumnName = "MANAGER_ID")},

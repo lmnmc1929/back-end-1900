@@ -1,5 +1,6 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,14 +17,17 @@ import java.util.List;
 @AllArgsConstructor
 public class Room {
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="CINEMA_ID")
+    @JsonIgnore
     private Cinema cinema;
 
     @OneToMany(targetEntity = Seat.class)
+    @JsonIgnore
     private List<Seat> seatList;
 
     @OneToMany(targetEntity = Schedule.class)
+    @JsonIgnore
     private List<Schedule> scheduleList;
 
 
@@ -41,7 +45,5 @@ public class Room {
 
     @Column(name = "TYPE", length = 100)
     private String type;
-
-
 
 }

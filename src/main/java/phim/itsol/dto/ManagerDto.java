@@ -32,6 +32,7 @@ public class ManagerDto {
 
     private Set<Role> roleList;
 
+    private String[] roles;
 
     public ManagerDto(Manager manager){
         this.cinemaId = manager.getCinema().getCinemaId();
@@ -39,5 +40,6 @@ public class ManagerDto {
         this.managerPassword = manager.getManagerPassword();
         this.managerName = manager.getManagerName();
         this.roleList = manager.getRoleList();
+
     }
 }

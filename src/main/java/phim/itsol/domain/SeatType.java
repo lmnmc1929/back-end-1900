@@ -1,5 +1,7 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +16,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SeatType {
     @OneToMany(targetEntity = Seat.class)
+    @JsonIgnore
     private List<Seat> seatList;
 
     @Id
@@ -27,6 +31,6 @@ public class SeatType {
     @Column(name = "SEAT_TYPE_NAME", length = 20)
     private String seatTypeName;
 
-    @Column(name = "SEAT_TYPE_PRICE", length = 20)
+    @Column(name = "SEAT_PRICE", length = 20)
     private double seatPrice;
 }

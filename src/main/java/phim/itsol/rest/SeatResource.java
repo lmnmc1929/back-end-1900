@@ -5,16 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import phim.itsol.domain.Cinema;
-import phim.itsol.domain.Seat;
 import phim.itsol.dto.SeatDto;
-import phim.itsol.service.CinemaService;
 import phim.itsol.service.SeatService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/manager/seat")
+@RequestMapping("/api/seat")
 public class SeatResource {
     private Logger log = LoggerFactory.getLogger(getClass());
 

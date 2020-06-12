@@ -1,6 +1,8 @@
 package phim.itsol.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +17,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Seat {
 
-    @OneToOne(targetEntity = Room.class)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id")
+    @JsonIgnore
     private Room room;
 
-    @OneToOne(targetEntity = SeatType.class)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seat_type_id")
+    @JsonIgnore
     private SeatType seatType;
 
 
@@ -29,7 +35,7 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEAT_SEQ")
     @SequenceGenerator(sequenceName = "SEAT_SEQ", allocationSize = 1, name = "SEAT_SEQ")
     @Column(name = "SEAT_ID")
-    private int seatId;
+    private Long seatId;
 
     @Column(name = "SEAT_ROW", length = 20)
     private String seatRow;

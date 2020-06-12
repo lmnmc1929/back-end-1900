@@ -11,7 +11,7 @@ import phim.itsol.service.CinemaService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/manager/cinema")
+@RequestMapping("/api/cinema")
 public class CinemaResource {
     private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -27,7 +27,7 @@ public class CinemaResource {
         return new ResponseEntity<>(cinemaService.getAllCinema(), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create/{cinemaId}")
     public ResponseEntity<Void> saveCinema(@RequestBody Cinema cinema){
         log.trace("REST to request create cinema: {}", cinema);
         try{

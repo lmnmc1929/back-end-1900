@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import phim.itsol.domain.Cinema;
 import phim.itsol.domain.Room;
 import phim.itsol.domain.Seat;
 import phim.itsol.domain.SeatType;
