@@ -1,5 +1,7 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,9 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Genre {
 
     @ManyToMany(targetEntity = Movie.class)
+    @JsonIgnore
     private List<Movie> movieList;
 
     @Id

@@ -16,8 +16,4 @@ public interface ManagerRepository extends JpaRepository<Manager, String> {
     @Cacheable(cacheNames = USERS_BY_LOGIN_CACHE)
     Optional<Manager> findOneWithRoleListByManagerUsername(String managerUsername);
     //Optional<Manager> findManagerByManagerUsername(String managerUsername);
-
-
-
-
 }
