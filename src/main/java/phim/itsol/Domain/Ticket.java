@@ -1,27 +1,18 @@
-package phim.itsol.Domain;
-
-import lombok.*;
+package phim.itsol.domain;
 
 import javax.persistence.*;
 import java.util.Date;
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "TICKET")
-@Data
-@Getter
-@Setter
-
 
 public class Ticket {
+    @OneToOne(targetEntity = CancelTicket.class)
+    private CancelTicket CancelTicket;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TICKET_SEQ")
     @SequenceGenerator(name = "TICKET_SEQ", sequenceName = "TICKET_SEQ", allocationSize = 1)
     @Column(name = "TICKET_ID")
-    private long Ticket_ID;
+    private long ticketId;
 
     @Column(name = "BOOKING_TIME")
-    private Date Booking_Time;
-
-
+    private Date bookingTime;
 }

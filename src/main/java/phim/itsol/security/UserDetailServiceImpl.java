@@ -2,7 +2,6 @@ package phim.itsol.security;
 
 import phim.itsol.domain.Manager;
 import phim.itsol.repo.ManagerRepository;
-import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
