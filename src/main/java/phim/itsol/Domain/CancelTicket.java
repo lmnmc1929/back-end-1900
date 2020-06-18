@@ -1,4 +1,4 @@
-package phim.itsol.Domain;
+package phim.itsol.domain;
 
 import lombok.*;
 
@@ -13,14 +13,16 @@ import java.util.Date;
 @Getter
 @Setter
 
-public class Cancel_Ticket {
+public class CancelTicket {
+    @OneToOne(targetEntity = Ticket.class)
+    private Ticket ticket;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CANCEL_TICKET_SEQ")
     @SequenceGenerator(name = "CANCEL_TICKET_SEQ", sequenceName = "CANCEL_TICKET_SEQ", allocationSize = 1)
     @Column(name = "CANCEL_TICKET_ID")
-    private long CancelTicketId;
+    private long cancelTicketId;
 
     @Column(name = "CANCEL_TIME")
-    private Date Cancel_Time;
-
+    private Date cancelTime;
 }

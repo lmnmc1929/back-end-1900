@@ -10,7 +10,6 @@ import phim.itsol.repo.CinemaRepository;
 import phim.itsol.service.CinemaService;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional(rollbackFor = Exception.class)

@@ -5,9 +5,6 @@ import phim.itsol.domain.Manager;
 import phim.itsol.domain.Role;
 
 
-import javax.validation.constraints.NotNull;
-
-import java.util.List;
 import java.util.Set;
 
 

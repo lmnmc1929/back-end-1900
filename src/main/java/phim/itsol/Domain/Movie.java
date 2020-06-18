@@ -1,5 +1,7 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 
@@ -17,6 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, ignoreUnknown = true)
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MOVIE_SEQ")
@@ -30,14 +33,14 @@ public class Movie {
             joinColumns = {@JoinColumn(name = "MOVIE_ID", referencedColumnName = "MOVIE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "GENRE_ID", referencedColumnName = "GENRE_ID")})
     @BatchSize(size = 20)
+    @JsonIgnore
     private List<Genre> genreList;
 
     @Column(name = "MOVIE_NAME", length = 100)
     private String movieName;
 
     @Column(name = "MOVIE_YEAR")
-    @Temporal(TemporalType.DATE)
-    private Date movieDate;
+    private String movieYear;
 
     @Column(name = "MOVIE_DURATION", length = 50)
     private String movieDuration;
@@ -46,5 +49,6 @@ public class Movie {
     private String description;
 
     @OneToMany(targetEntity = MovieImage.class)
+    @JsonIgnore
     private List<MovieImage> movieImageList;
 }

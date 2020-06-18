@@ -12,7 +12,6 @@ import phim.itsol.exception.EmailExistException;
 import phim.itsol.exception.UsernameExistException;
 import phim.itsol.repo.ManagerRepository;
 import phim.itsol.repo.RoleRepository;
-import phim.itsol.security.AuthoritiesConstants;
 import phim.itsol.security.SecurityUtils;
 import phim.itsol.service.ManagerService;
 

@@ -20,12 +20,12 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Seat {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Room.class)
     @JoinColumn(name = "room_id")
     @JsonIgnore
     private Room room;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = SeatType.class)
     @JoinColumn(name = "seat_type_id")
     @JsonIgnore
     private SeatType seatType;

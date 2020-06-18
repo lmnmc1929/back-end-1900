@@ -1,6 +1,7 @@
 package phim.itsol.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +16,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Room {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Cinema.class)
     @JoinColumn(name="CINEMA_ID")
     @JsonIgnore
     private Cinema cinema;

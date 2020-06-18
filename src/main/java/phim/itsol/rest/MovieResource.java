@@ -10,7 +10,7 @@ import phim.itsol.service.MovieService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/movie")
 public class MovieResource {
     Logger log = LoggerFactory.getLogger(MovieResource.class);
 
@@ -50,7 +50,7 @@ public class MovieResource {
         }
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{movieId}")
     public ResponseEntity<Void> updateMovie(@RequestBody MovieDto movie){
         log.trace("REST to request update movie: {}", movie);
         try{

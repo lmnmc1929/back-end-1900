@@ -2,7 +2,6 @@ package phim.itsol.dto;
 
 import lombok.*;
 import phim.itsol.domain.Cinema;
-import phim.itsol.domain.Room;
 import phim.itsol.domain.Schedule;
 import phim.itsol.domain.Seat;
 

@@ -7,7 +7,6 @@ import phim.itsol.domain.MovieImage;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -21,7 +20,7 @@ public class MovieDto {
 
     private String movieName;
 
-    private Date movieDate;
+    private String movieYear;
 
     private String duration;
 
@@ -33,13 +32,13 @@ public class MovieDto {
 
     private String[] genres;
 
-    public MovieDto(Movie movie){
-        this.movieId = movie.getMovieId();
-        this.movieName = movie.getMovieName();
-        this.movieDate = movie.getMovieDate();
-        this.duration = movie.getMovieDuration();
-        this.description = movie.getDescription();
-        this.movieImageID = movie.getMovieImageList();
-        this.genreList = movie.getGenreList();
-    }
+//    public MovieDto(Movie movie){
+//        this.movieId = movie.getMovieId();
+//        this.movieName = movie.getMovieName();
+//        this.movieYear = movie.getMovieYear();
+//        this.duration = movie.getMovieDuration();
+//        this.description = movie.getDescription();
+//        this.movieImageID = movie.getMovieImageList();
+//        this.genreList = movie.getGenreList();
+//    }
 }

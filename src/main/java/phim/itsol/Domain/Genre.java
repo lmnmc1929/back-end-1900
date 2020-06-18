@@ -15,8 +15,8 @@ import java.util.List;
 @EqualsAndHashCode
 public class Genre {
 
-    @ManyToMany(targetEntity = Movie.class)
-    private List<Movie> movieList;
+//    @ManyToMany(targetEntity = Movie.class)
+//    private List<Movie> movieList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENRE_SEQ")

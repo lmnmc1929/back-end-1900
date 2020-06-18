@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/manager")
 public class ManagerResource {
 
     private Logger log = LoggerFactory.getLogger(ManagerResource.class);

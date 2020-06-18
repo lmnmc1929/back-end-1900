@@ -1,5 +1,6 @@
 package phim.itsol.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,4 +21,9 @@ public class MovieImage {
 
     @Column(name = "URL", length = 200)
     private String url;
+
+    @ManyToOne(targetEntity = Movie.class)
+    @JoinColumn(name = "MOVIE_ID")
+    @JsonIgnore
+    private Movie movie;
 }

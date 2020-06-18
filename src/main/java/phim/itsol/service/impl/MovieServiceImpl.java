@@ -5,9 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import phim.itsol.domain.Cinema;
 import phim.itsol.domain.Movie;
-import phim.itsol.domain.Room;
+import phim.itsol.domain.MovieImage;
 import phim.itsol.dto.MovieDto;
 import phim.itsol.repo.MovieRepository;
 import phim.itsol.service.MovieService;
@@ -35,24 +34,32 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void create(MovieDto movieDto) {
-        log.trace("Service to create movie {}", movieDto);
+        log.trace("Service to create movie: {}", movieDto);
         Movie movie = modelMapper.map(movieDto, Movie.class);
+
+        MovieImage movieImage = new MovieImage();
+        movieImage.setMovieImageId(movie.getMovieId());
+        movie.setMovieImageList((List<MovieImage>) movieDto);
+
+
         movieRepository.save(movie);
     }
 
     @Override
     public void update(MovieDto movieDto) {
-        log.trace("Service to update Movie: {}", movieDto);
-        Movie movieDb = movieRepository.getOne(movieDto.getMovieId());
+        log.trace("Service to update movie: {}", movieDto);
+        Movie movie = movieRepository.getOne(movieDto.getMovieId());
 
-        movieDb.setMovieName(movieDto.getMovieName());
-        movieDb.setMovieDate(movieDto.getMovieDate());
-        movieDb.setMovieDuration(movieDto.getDuration());
-        movieDb.setDescription(movieDto.getDescription());
-        movieDb.setMovieImageList(movieDto.getMovieImageID());
-        movieDb.setGenreList(movieDto.getGenreList());
+        movie.setMovieName(movie.getMovieName());
+        movie.setMovieYear(movie.getMovieYear());
+        movie.setMovieDuration(movie.getMovieDuration());
+        movie.setDescription(movie.getDescription());
 
-        movieRepository.save(movieDb);
+        MovieImage movieImage = new MovieImage();
+        movieImage.setMovieImageId(movieDto.getMovieId());
+        movie.setMovieImageList((List<MovieImage>) movieImage);
+
+        movieRepository.save(movie);
     }
 
 
