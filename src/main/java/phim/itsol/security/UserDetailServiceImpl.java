@@ -1,7 +1,5 @@
 package phim.itsol.security;
 
-import phim.itsol.domain.Manager;
-import phim.itsol.repo.ManagerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import phim.itsol.domain.Manager;
+import phim.itsol.repo.ManagerRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;

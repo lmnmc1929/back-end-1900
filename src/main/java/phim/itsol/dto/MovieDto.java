@@ -2,10 +2,8 @@ package phim.itsol.dto;
 
 import lombok.*;
 import phim.itsol.domain.Genre;
-import phim.itsol.domain.Movie;
 import phim.itsol.domain.MovieImage;
 
-import java.util.Date;
 import java.util.List;
 
 @Getter

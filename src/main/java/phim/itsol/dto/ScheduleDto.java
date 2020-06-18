@@ -1,9 +1,11 @@
 package phim.itsol.dto;
 
 import lombok.*;
-import phim.itsol.domain.Schedule;
+import phim.itsol.domain.Movie;
+import phim.itsol.domain.Room;
+import phim.itsol.domain.Ticket;
 
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -11,24 +13,11 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-
 public class ScheduleDto {
-
     private Long scheduleId;
-
-    private Long roomId;
-
     private Long movieId;
-
-    private Date startTime;
-
-    private Double moviePrice;
-
-//    public ScheduleDto(Schedule schedule) {
-//        this.scheduleId = scheduleId;
-//        this.roomId = roomId;
-//        this.movieId = movieId;
-//        this.startTime = startTime;
-//        this.moviePrice = moviePrice;
-//    }
+    private Long roomId;
+    private Room room;
+    private Movie movie;
+    private List<Ticket> ticketList;
 }

@@ -1,9 +1,11 @@
 package phim.itsol.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
-
-import lombok.*;
-
 import java.util.Date;
 
 @Entity
@@ -14,8 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 
 public class Customer {
-    @OneToOne(targetEntity = Ticket.class)
-    private Ticket ticket;
+//    @OneToOne(targetEntity = Ticket.class)
+//    private Ticket ticket;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_SEQ")
@@ -30,14 +32,14 @@ public class Customer {
     private String password;
 
     @Column(name = "FULL_NAME")
-    private  String fullName;
+    private String fullName;
 
     @Column(name = "GENDER")
-    private  String gender;
+    private String gender;
 
     @Column(name = "DATE_OF_BIRTH")
     private Date dateOfBirth;
 
     @Column(name = "PHONE_NUMBER")
-    private  String phoneNumber;
+    private String phoneNumber;
 }

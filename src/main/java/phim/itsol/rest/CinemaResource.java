@@ -27,7 +27,7 @@ public class CinemaResource {
         return new ResponseEntity<>(cinemaService.getAllCinema(), HttpStatus.OK);
     }
 
-    @PostMapping("/create/{cinemaId}")
+    @PostMapping("/create")
     public ResponseEntity<Void> saveCinema(@RequestBody Cinema cinema){
         log.trace("REST to request create cinema: {}", cinema);
         try{

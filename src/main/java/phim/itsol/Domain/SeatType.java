@@ -1,6 +1,5 @@
 package phim.itsol.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="SEAT_TYPE")
@@ -18,9 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SeatType {
-    @OneToMany(targetEntity = Seat.class)
-    @JsonIgnore
-    private List<Seat> seatList;
+//    @OneToMany(targetEntity = Seat.class)
+//    @JsonIgnore
+//    private List<Seat> seatList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEAT_TYPE_SEQ")

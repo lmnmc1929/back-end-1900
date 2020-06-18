@@ -8,6 +8,7 @@ import phim.itsol.domain.Role;
 import phim.itsol.repo.RoleRepository;
 import phim.itsol.service.RoleService;
 
+
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class RoleServiceImpl implements RoleService {

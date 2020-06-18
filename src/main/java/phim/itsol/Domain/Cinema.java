@@ -1,6 +1,5 @@
 package phim.itsol.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="CINEMA")
@@ -18,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cinema {
-    @OneToMany(targetEntity = Room.class)
-    @JsonIgnore
-    private List<Room> roomList;
+//    @OneToMany(targetEntity = Room.class)
+//    @JsonIgnore
+//    private List<Room> roomList;
 
-    @OneToMany(targetEntity = Manager.class)
-    @JsonIgnore
-    private List<Manager> managerList;
+//    @OneToMany(targetEntity = Manager.class)
+//    @JsonIgnore
+//    private List<Manager> managerList;
 
 
     @Id

@@ -1,6 +1,8 @@
 package phim.itsol.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,9 @@ import phim.itsol.repo.RoleRepository;
 import phim.itsol.security.SecurityUtils;
 import phim.itsol.service.ManagerService;
 
-import java.util.*;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {

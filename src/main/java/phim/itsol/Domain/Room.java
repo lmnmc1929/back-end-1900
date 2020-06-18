@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="ROOM")
@@ -24,13 +23,13 @@ public class Room {
     @JsonIgnore
     private Cinema cinema;
 
-    @OneToMany(targetEntity = Seat.class)
-    @JsonIgnore
-    private List<Seat> seatList;
+//    @OneToMany(targetEntity = Seat.class)
+//    @JsonIgnore
+//    private List<Seat> seatList;
 
-    @OneToMany(targetEntity = Schedule.class)
-    @JsonIgnore
-    private List<Schedule> scheduleList;
+//    @OneToMany(targetEntity = Schedule.class)
+//    @JsonIgnore
+//    private List<Schedule> scheduleList;
 
 
     @Id

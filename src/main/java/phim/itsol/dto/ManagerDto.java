@@ -4,7 +4,6 @@ import lombok.*;
 import phim.itsol.domain.Manager;
 import phim.itsol.domain.Role;
 
-
 import java.util.Set;
 
 

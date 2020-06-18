@@ -49,7 +49,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         schedule.setRoom(room);
 
         Movie movie = new Movie();
-        movie.setMovieId(schedule.getScheduleId());
+        movie.setMovieId(scheduleDto.getMovieId());
         schedule.setMovie(movie);
         scheduleRepository.save(schedule);
     }

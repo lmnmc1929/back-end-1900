@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,8 +20,8 @@ public class Ticket {
     @JsonIgnore
     private Customer customer;
 
-    @OneToOne(targetEntity = CancelTicket.class)
-    private CancelTicket cancelTicket;
+//    @OneToOne(targetEntity = CancelTicket.class)
+//    private CancelTicket cancelTicket;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CINEMA_ID")

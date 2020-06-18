@@ -14,7 +14,8 @@ import java.util.Date;
 @Setter
 
 public class CancelTicket {
-    @OneToOne(targetEntity = Ticket.class)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TICKET_ID")
     private Ticket ticket;
 
     @Id
